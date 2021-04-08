@@ -1,7 +1,7 @@
 import React from 'react'
-import { ModalProvider } from '../contexts/Modal'
-import { CloseButton, OpenButton } from './Button'
-import Modal from './Modal'
+import { DisplayProvider } from '../contexts'
+import { UnselectButton, SelectButton } from './Button'
+import Display from './Display'
 
 interface Props {
   name: string
@@ -9,13 +9,15 @@ interface Props {
 
 const Wrapper: React.FC<Props> = ({ name }: Props) => {
   return (
-    <ModalProvider>
-      <div style={{ display: 'flex', justifyContent: 'left' }}>
-        <OpenButton name={name}></OpenButton>
-        <CloseButton name={name}></CloseButton>
-        <Modal name={name}></Modal>
+    <DisplayProvider>
+      <div style={{ display: 'flex', justifyContent: 'space-between', width: '50%' }}>
+        <SelectButton name={name}></SelectButton>
+        <UnselectButton name={name}></UnselectButton>
+        <div style={{ marginLeft: 'auto' }}>
+          <Display name={name}></Display>
+        </div>
       </div>
-    </ModalProvider>
+    </DisplayProvider>
   )
 }
 

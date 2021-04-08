@@ -1,18 +1,18 @@
 import React, { useContext } from 'react'
-import { ModalContext } from '../contexts/Modal'
+import { DisplayContext } from '../contexts'
 
 interface Props {
   name: string
 }
 
-export const OpenButton: React.FC<Props> = ({ name }: Props) => {
-  const { openModal } = useContext(ModalContext)
+export const SelectButton: React.FC<Props> = ({ name }: Props) => {
+  const { selectDisplay } = useContext(DisplayContext)
 
-  return <button onClick={openModal}>Open Modal {name}</button>
+  return <button onClick={selectDisplay}>Select Display {name}</button>
 }
 
-export const CloseButton: React.FC<Props> = ({ name }: Props) => {
-  const { closeModal } = useContext(ModalContext)
+export const UnselectButton: React.FC<Props> = ({ name }: Props) => {
+  const { unselectDisplay } = useContext(DisplayContext)
 
-  return <button onClick={closeModal}>Close Modal {name}</button>
+  return <button onClick={unselectDisplay}>Unselect Display {name}</button>
 }
